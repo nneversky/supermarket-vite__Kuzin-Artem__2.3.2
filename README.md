@@ -1,0 +1,1 @@
+# supermarket-vite__Kuzin-Artem__2.3.2
