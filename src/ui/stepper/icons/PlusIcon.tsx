@@ -8,7 +8,7 @@ const PlusIcon = ({ condition = "default" }) => {
       xmlns="http://www.w3.org/2000/svg"
     >
       <rect width="30" height="30" rx="8" fill="#DEE2E6" />
-      <g clip-path="url(#clip0_1_475)">
+      <g clipPath="url(#clip0_1_475)">
         <path
           style={{ opacity: condition !== "default" ? 0.3 : 1 }}
           d="M16 9H14V14H9V16H14V21H16V16H21V14H16V9Z"

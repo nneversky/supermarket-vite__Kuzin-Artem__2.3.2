@@ -8,6 +8,7 @@
 }
 
 .image {
+  transform: translateY(-20px);
   width: 276px;
   height: 276px;
 }
@@ -21,13 +22,18 @@
   position:relative;
   transform: translateY(40px);
   display: flex;
+  align-items: center;
   justify-content: start;
   width: 276px;
-  gap: 100px;
 }
 
 .text__title {
   font-weight: 600;
+}
+
+.stepper {
+  position: absolute;
+  transform: translateX(95px);
 }
 
 .description__text {
@@ -39,12 +45,17 @@
 .text__weight {
   font-size: 12px;
   color: #868E96;
+  width: 50px;
+}
+
+.button {
+  position: absolute;
+  transform: translateX(125px);
 }
 
 .price {
   transform: translateY(20px);
   width: 276px;
-  gap: 60px;
   display: flex;
   align-items: center;
 }
