@@ -2,17 +2,34 @@ import "./Stepper.css";
 import MinusIcon from "./icons/MinusIcon";
 import PlusIcon from "./icons/PlusIcon";
 
-const Stepper = () => {
+import { StepperContext } from "../../state/context";
+import { useContext } from "react";
+
+type StepperProps = {
+  count: number;
+  id: number;
+};
+
+const Stepper = ({ id, count }: StepperProps) => {
+  const setStepperCount = useContext(StepperContext);
+  if (!setStepperCount) return null;
+  
   return (
     <div className="stepper">
-      <div className="stepper__button">
-        <MinusIcon condition = "default"/>
+      <div
+        onClick={() => setStepperCount(id, "minus")}
+        className="stepper__button"
+      >
+        <MinusIcon condition="default" />
       </div>
       <div className="stepper__title">
-        <span>0</span>
+        <span>{count}</span>
       </div>
-      <div className="stepper__button">
-        <PlusIcon condition = "default"/>
+      <div
+        onClick={() => setStepperCount(id, "plus")}
+        className="stepper__button"
+      >
+        <PlusIcon condition="default" />
       </div>
     </div>
   );

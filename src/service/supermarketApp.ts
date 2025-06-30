@@ -6,6 +6,7 @@ export type CardItem = {
   category: string;
   image: string;
   name: string;
+  count : number
 };
 
 export default class SupermarketApp {

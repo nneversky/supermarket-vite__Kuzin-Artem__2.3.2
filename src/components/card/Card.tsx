@@ -10,7 +10,7 @@ type CardDataProps = {
 };
 
 const Card = ({ data }: CardDataProps) => {
-  const { image, name, price } = data;
+  const { image, name, price, count, id } = data;
   const [nameItem, weightItem] = name.split(" - ");
   return (
     <Paper p="xl" radius="24px" className="card">
@@ -24,7 +24,7 @@ const Card = ({ data }: CardDataProps) => {
           <span className="text__weight">{weightItem}</span>
         </div>
         <div className="stepper">
-          <Stepper />
+          <Stepper id={id} count={count} />
         </div>
       </div>
 

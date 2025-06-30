@@ -1,4 +1,4 @@
-const MinusIcon = ({condition = "default"}) => {
+const MinusIcon = ({ condition = "default" }) => {
   return (
     <svg
       width="25"
