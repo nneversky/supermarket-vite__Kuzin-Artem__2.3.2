@@ -2,6 +2,8 @@ import "./Card.css";
 import Stepper from "../../ui/stepper";
 import Button from "../../ui/button";
 import type { CardItem } from "../../service/supermarketApp";
+import { useContext } from "react";
+import { CartContext } from "../../state/context";
 
 import { Paper, Image } from "@mantine/core";
 
@@ -10,6 +12,8 @@ type CardDataProps = {
 };
 
 const Card = ({ data }: CardDataProps) => {
+  const actionToCart = useContext(CartContext);
+
   const { image, name, price, count, id } = data;
   const [nameItem, weightItem] = name.split(" - ");
   return (
@@ -31,7 +35,14 @@ const Card = ({ data }: CardDataProps) => {
       <div className="price">
         <h3 className="price__text">$ {price}</h3>
         <div className="button">
-          <Button variant="light" color="#3B944E">
+          <Button
+            variant="light"
+            colorButton="#3B944E"
+            id={id}
+            // action="add-cart"
+            colorCard="#3B944E"
+            onClick={actionToCart}
+          >
             Add to cart
           </Button>
         </div>

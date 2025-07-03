@@ -1,0 +1,27 @@
+.header {
+  width: 1440px;
+  height: 59px;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content:space-around;
+  gap: 1000px;
+  background-color: #FFFFFF;
+}
+
+.count-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #212529;
+  width: 20px;
+  height: 20px;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+}
+
+.header__button--cart {
+  width: 130px;
+}

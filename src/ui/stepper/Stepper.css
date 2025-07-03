@@ -1,8 +1,7 @@
 .stepper {
   display: flex;
-  align-self: center;
   align-items: center;
-  gap: 10px;
+  gap: 6px;
   font-weight: 400;
   color: #212529;
   font-size: 16px;
@@ -14,5 +13,8 @@
 }
 
 .stepper__title {
+  width: 20px;
   display: flex;
+  justify-content: center;
 }
+

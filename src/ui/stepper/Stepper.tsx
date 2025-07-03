@@ -12,7 +12,6 @@ type StepperProps = {
 
 const Stepper = ({ id, count }: StepperProps) => {
   const setStepperCount = useContext(StepperContext);
-  if (!setStepperCount) return null;
   
   return (
     <div className="stepper">
@@ -27,7 +26,7 @@ const Stepper = ({ id, count }: StepperProps) => {
       </div>
       <div
         onClick={() => setStepperCount(id, "plus")}
-        className="stepper__button"
+        className="stepper__button plus"
       >
         <PlusIcon condition="default" />
       </div>

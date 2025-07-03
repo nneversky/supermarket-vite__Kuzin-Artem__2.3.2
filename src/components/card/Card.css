@@ -43,7 +43,8 @@
 }
 
 .text__weight {
-  font-size: 12px;
+  font-weight: 600;
+  font-size: 14px;
   color: #868E96;
   width: 50px;
 }
