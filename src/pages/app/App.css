@@ -8,5 +8,6 @@
 .supermarket-app {
   display: flex;
   justify-content: center;
-  font-family:'InterRegular', Arial, sans-serif
+  font-family:'InterRegular', Arial, sans-serif;
+  background-color: #F3F5FA;
 }

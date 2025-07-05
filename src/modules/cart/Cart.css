@@ -4,13 +4,30 @@
   position: fixed;
   transform: translate(470px, 70px);
   border-radius: 16px;
+  box-shadow: 4px 4px 8px 4px rgba(34, 60, 80, 0.2);
+}
+
+.emty-cart {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.emty-cart--text {
+  margin-top: 20px;
+  color: #868E96;
+  font-size: 16px;
+  font-weight: 400;
 }
 
 .listItems {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin-top: 25px;
+  margin-top: 10px;
 }
 
 .cart__price {
@@ -25,5 +42,5 @@
 
 .cart__price {
   height: 40px;
-  width: 396px;
+  width: 444px;
 }

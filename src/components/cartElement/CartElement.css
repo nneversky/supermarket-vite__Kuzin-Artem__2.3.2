@@ -1,5 +1,5 @@
 .cart-popup {
-  width: 396px;
+  width: 444px;
   height: 80px;
   background-color: #FFFFFF;
   display: flex;
@@ -7,9 +7,8 @@
 }
 
 .cart__stepper {
-  background-color: red;
   position: absolute;
-  transform: translate(205px, 45px);
+  transform: translate(245px, 45px);
 }
 
 .item-cart__title {

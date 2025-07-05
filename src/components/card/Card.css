@@ -10,12 +10,22 @@
 .image {
   transform: translateY(-20px);
   width: 276px;
-  height: 276px;
+  height: 230px;
+  border-radius: 8px;
+  background-color: #F3F5FA;
 }
 
 .price__text {
   font-weight: 600;
   font-size: 20px;
+}
+
+.loader__image {
+  width: 276px;
+  height: 276px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .description {

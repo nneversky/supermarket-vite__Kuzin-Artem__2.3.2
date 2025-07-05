@@ -1,5 +1,6 @@
 .header {
   width: 1440px;
+  width: 100vw;
   height: 59px;
   position: fixed;
   top: 0;
@@ -22,6 +23,6 @@
   border-radius: 50%;
 }
 
-.header__button--cart {
+.header__button {
   width: 130px;
 }

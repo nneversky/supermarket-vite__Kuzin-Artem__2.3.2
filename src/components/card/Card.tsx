@@ -1,11 +1,11 @@
 import "./Card.css";
-import Stepper from "../../ui/stepper";
+import Stepper from "../../components/stepper";
 import Button from "../../ui/button";
 import type { CardItem } from "../../service/supermarketApp";
 import { useContext } from "react";
-import { CartContext } from "../../state/context";
-
-import { Paper, Image } from "@mantine/core";
+import { CartContext, StepperContext } from "../../state/context";
+import { Image } from "antd";
+import { Paper, Loader } from "@mantine/core";
 
 type CardDataProps = {
   data: CardItem;
@@ -13,13 +13,24 @@ type CardDataProps = {
 
 const Card = ({ data }: CardDataProps) => {
   const actionToCart = useContext(CartContext);
-
+  const setStepperCount  = useContext(StepperContext);
+  
   const { image, name, price, count, id } = data;
   const [nameItem, weightItem] = name.split(" - ");
   return (
     <Paper p="xl" radius="24px" className="card">
       <div className="image">
-        <Image h={230} w={276} src={image} />
+        <Image
+          height={276}
+          width={276}
+          src={image}
+          preview={false}
+          placeholder={
+            <div className="loader__image">
+              <Loader color="gray" size="lg" type="bars" />
+            </div>
+          }
+        />
       </div>
 
       <div className="description">
@@ -28,7 +39,7 @@ const Card = ({ data }: CardDataProps) => {
           <span className="text__weight">{weightItem}</span>
         </div>
         <div className="stepper">
-          <Stepper id={id} count={count} />
+          <Stepper id={id} count={count} onClick={setStepperCount} />
         </div>
       </div>
 
@@ -39,7 +50,6 @@ const Card = ({ data }: CardDataProps) => {
             variant="light"
             colorButton="#3B944E"
             id={id}
-            // action="add-cart"
             colorCard="#3B944E"
             onClick={actionToCart}
           >

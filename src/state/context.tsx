@@ -26,7 +26,17 @@ export const PopupContext = createContext<PopupContextType>({
   setCart: () => {},
 });
 
-export const CartContext = createContext<(id: number) => void>(() => {
+type StepperCartContextType = {
+  idElementInCart: object;
+  setIdElementInCart: Dispatch<SetStateAction<object>>;
+};
+
+export const StepperCartContext = createContext<StepperCartContextType>({
+  idElementInCart: {},
+  setIdElementInCart: () => {},
+});
+
+export const CartContext = createContext<(id?: number) => void>(() => {
   throw new Error();
 });
 

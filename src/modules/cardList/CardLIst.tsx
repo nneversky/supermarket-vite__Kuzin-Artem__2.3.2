@@ -8,6 +8,7 @@ import {
   CartContext,
   CountItemsContext,
   PopupContext,
+  StepperCartContext,
 } from "../../state/context";
 import "./CardLIst.css";
 
@@ -17,6 +18,22 @@ const CardLIst = () => {
   const [load, setLoad] = useState(true);
   const { setCount } = useContext(CountItemsContext);
   const { setCart } = useContext(PopupContext);
+  const { stepperCart, setStepperCart } = useContext(StepperCartContext);
+
+  useEffect(() => {
+    const { id, action } = stepperCart;
+    const newCartItems = cartItems.map((item) => {
+      if (item.id === id) {
+        if (action === "minus" && item.count !== 0) {
+          item.count -= 1;
+        } else if (action === "plus") {
+          item.count += 1;
+        }
+      }
+      return item;
+    });
+    setCartItems(newCartItems);
+  }, [stepperCart]);
 
   useEffect(() => {
     const market = new SupermarketApp();
@@ -40,20 +57,22 @@ const CardLIst = () => {
     const itemToAdd = items.find((item) => item.id === id);
     if (!itemToAdd) return;
 
-    setCartItems((prevCartItems) => {
-      const existingItemIndex =
-        prevCartItems?.findIndex((item) => item.id === id) ?? -1;
+    if (itemToAdd.count !== 0) {
+      setCartItems((prevCartItems) => {
+        const existingItemIndex =
+          prevCartItems?.findIndex((item) => item.id === id) ?? -1;
 
-      if (existingItemIndex >= 0) {
-        return prevCartItems.map((item, index) =>
-          index === existingItemIndex
-            ? { ...item, count: item.count + itemToAdd.count }
-            : item
-        );
-      } else {
-        return [...prevCartItems, { ...itemToAdd }];
-      }
-    });
+        if (existingItemIndex >= 0) {
+          return prevCartItems.map((item, index) =>
+            index === existingItemIndex
+              ? { ...item, count: item.count + itemToAdd.count }
+              : item
+          );
+        } else {
+          return [...prevCartItems, { ...itemToAdd }];
+        }
+      });
+    }
 
     setItem((prevItems) => {
       if (!prevItems) return null;
@@ -87,14 +106,17 @@ const CardLIst = () => {
         <>
           {load && (
             <div className="loader">
-              <Loader color="blue" size="xl" />
+              <Loader color="gray" size="xl" />
             </div>
           )}
           <section className="card-list">
             <h2 className="catalog">Catalog</h2>
             <CartContext.Provider value={handleAddCart}>
               <StepperContext.Provider value={handleClickStepper}>
-                <Table>
+                <Table
+                  className="table"
+                  withRowBorders={false}
+                >
                   <Table.Tbody>
                     {items.map((card) => {
                       const { id } = card;
