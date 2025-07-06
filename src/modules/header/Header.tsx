@@ -6,7 +6,7 @@ import { useContext, useState } from "react";
 
 const Header = () => {
   const { count } = useContext(CountItemsContext);
-  const { showPopup, setShowPopup } = useContext(ShowPopupContext);
+  const { setShowPopup } = useContext(ShowPopupContext);
   const [stateCartButton, setStateCartButton] = useState("cart--close");
 
   const handleClick = () => {

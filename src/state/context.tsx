@@ -12,7 +12,7 @@ type PopupContextType = {
 };
 
 type ShowPopupContextType = {
-  showPopup: false;
+  showPopup: boolean;
   setShowPopup: Dispatch<SetStateAction<boolean>>;
 };
 
@@ -27,16 +27,18 @@ export const PopupContext = createContext<PopupContextType>({
 });
 
 type StepperCartContextType = {
-  idElementInCart: object;
-  setIdElementInCart: Dispatch<SetStateAction<object>>;
+  stepperCart: { id?: number; action?: "plus" | "minus" };
+  setStepperCart: Dispatch<
+    SetStateAction<{ id: number; action: "plus" | "minus" }>
+  >;
 };
 
 export const StepperCartContext = createContext<StepperCartContextType>({
-  idElementInCart: {},
-  setIdElementInCart: () => {},
+  stepperCart: { id: 0, action: "plus" },
+  setStepperCart: () => {},
 });
 
-export const CartContext = createContext<(id?: number) => void>(() => {
+export const CartContext = createContext<(id: number) => void>(() => {
   throw new Error();
 });
 

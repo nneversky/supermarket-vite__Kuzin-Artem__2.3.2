@@ -14,7 +14,7 @@ const CartElement = ({ value }: CartElementInterface) => {
   const { image, name, price, id, count } = value;
   const [title, weight] = name.split(" - ");
 
-  const handleClick = (id: number, action: string) => {
+  const handleClick = (id: number, action: "plus" | "minus") => {
     setStepperCart({ id: id, action: action });
   };
 

@@ -13,8 +13,8 @@ type CardDataProps = {
 
 const Card = ({ data }: CardDataProps) => {
   const actionToCart = useContext(CartContext);
-  const setStepperCount  = useContext(StepperContext);
-  
+  const setStepperCount = useContext(StepperContext) ?? (() => {});
+
   const { image, name, price, count, id } = data;
   const [nameItem, weightItem] = name.split(" - ");
   return (
@@ -51,7 +51,7 @@ const Card = ({ data }: CardDataProps) => {
             colorButton="#3B944E"
             id={id}
             colorCard="#3B944E"
-            onClick={actionToCart}
+            onClick={(id?: number) => id !== undefined && actionToCart(id)}
           >
             Add to cart
           </Button>

@@ -18,12 +18,12 @@ const CardLIst = () => {
   const [load, setLoad] = useState(true);
   const { setCount } = useContext(CountItemsContext);
   const { setCart } = useContext(PopupContext);
-  const { stepperCart, setStepperCart } = useContext(StepperCartContext);
+  const { stepperCart } = useContext(StepperCartContext);
 
   useEffect(() => {
     const { id, action } = stepperCart;
     const newCartItems = cartItems.map((item) => {
-      if (item.id === id) {
+      if (item.id === id && item.count) {
         if (action === "minus" && item.count !== 0) {
           item.count -= 1;
         } else if (action === "plus") {
@@ -37,13 +37,22 @@ const CardLIst = () => {
 
   useEffect(() => {
     const market = new SupermarketApp();
-    market.getJsonList().then((data) => {
-      const newData = data.map((item) => {
-        return { count: 0, ...item };
+    market
+      .getJsonList()
+      .then((data: unknown) => {
+        if (data && Array.isArray(data)) {
+          const newData = data.map((item: CardItem) => ({
+            ...item,
+            count: 0,
+          }));
+          setItem(newData);
+          setLoad(false);
+        }
+      })
+      .catch((error) => {
+        console.error("Error loading data:", error);
+        setLoad(false);
       });
-      setItem(newData);
-      setLoad(false);
-    });
   }, []);
 
   useEffect(() => {
@@ -82,7 +91,7 @@ const CardLIst = () => {
     });
   };
 
-  const handleClickStepper = (id: number, action: string) => {
+  const handleClickStepper = (id: number, action: "plus" | "minus") => {
     const newItems = items?.map((item) => {
       if (id === item.id) {
         if (action === "minus" && item.count > 0) {
@@ -93,7 +102,7 @@ const CardLIst = () => {
       }
       return item;
     });
-    setItem(newItems);
+    setItem(newItems || null);
   };
 
   const RanderCards = () => {
@@ -113,10 +122,7 @@ const CardLIst = () => {
             <h2 className="catalog">Catalog</h2>
             <CartContext.Provider value={handleAddCart}>
               <StepperContext.Provider value={handleClickStepper}>
-                <Table
-                  className="table"
-                  withRowBorders={false}
-                >
+                <Table className="table" withRowBorders={false}>
                   <Table.Tbody>
                     {items.map((card) => {
                       const { id } = card;

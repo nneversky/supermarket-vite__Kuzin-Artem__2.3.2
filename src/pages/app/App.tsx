@@ -10,12 +10,13 @@ import {
   ShowPopupContext,
   StepperCartContext,
 } from "../../state/context";
+import type { CardItem } from "../../service/supermarketApp";
 
 import "./App.css";
 
 const App = () => {
   const [count, setCount] = useState(0);
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState<CardItem[]>([]);
   const [showPopup, setShowPopup] = useState(false);
   const [stepperCart, setStepperCart] = useState({});
 

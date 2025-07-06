@@ -5,7 +5,7 @@ import PlusIcon from "../../ui/stepperIcons/PlusIcon";
 type StepperProps = {
   count: number;
   id: number;
-  onClick: (id: number, action: string) => void;
+  onClick: (id: number, action: "plus" | "minus") => void;
 };
 
 const Stepper = ({ id, count, onClick }: StepperProps) => {
