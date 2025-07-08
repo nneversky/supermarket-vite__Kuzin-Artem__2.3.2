@@ -1,8 +1,8 @@
-#### Vegetable E-Commerce Store (React + TypeScript + Vite)
-##Project Overview
+## Vegetable E-Commerce Store (React + TypeScript + Vite)
+### Project Overview
 A modern vegetable e-commerce store built with React, TypeScript, and Vite. This application features product listings, a shopping cart system, and responsive design using Mantine UI components.
 
-##Key Features
+### Key Features
 🛒 Interactive Shopping Cart: Real-time updates for quantity and total price
 
 🌱 Product Catalog: Displays available vegetables from external API
@@ -15,7 +15,7 @@ A modern vegetable e-commerce store built with React, TypeScript, and Vite. This
 
 📱 Responsive Design: Works across different screen sizes
 
-##Technical Stack
+### Technical Stack
 Frontend: React 18 with TypeScript
 
 Build Tool: Vite
