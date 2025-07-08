@@ -10,14 +10,18 @@ type StepperProps = {
 
 const Stepper = ({ id, count, onClick }: StepperProps) => {
   return (
-    <div className="stepper">
+    <div data-testid="stepper" className="stepper">
       <div onClick={() => onClick(id, "minus")} className="stepper__button">
         <MinusIcon condition="default" />
       </div>
       <div className="stepper__title">
         <span>{count}</span>
       </div>
-      <div onClick={() => onClick(id, "plus")} className="stepper__button plus">
+      <div
+        onClick={() => onClick(id, "plus")}
+        data-testid="plus-button"
+        className="stepper__button plus"
+      >
         <PlusIcon condition="default" />
       </div>
     </div>

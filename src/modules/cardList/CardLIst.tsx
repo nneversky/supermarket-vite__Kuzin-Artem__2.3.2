@@ -43,7 +43,7 @@ const CardLIst = () => {
         if (data && Array.isArray(data)) {
           const newData = data.map((item: CardItem) => ({
             ...item,
-            count: 0,
+            count: item.count | 0,
           }));
           setItem(newData);
           setLoad(false);
