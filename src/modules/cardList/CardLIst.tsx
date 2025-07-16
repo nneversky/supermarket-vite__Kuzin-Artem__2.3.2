@@ -23,7 +23,7 @@ const CardLIst = () => {
   useEffect(() => {
     const { id, action } = stepperCart;
     const newCartItems = cartItems.map((item) => {
-      if (item.id === id && item.count) {
+      if (item.id === id) {
         if (action === "minus" && item.count !== 0) {
           item.count -= 1;
         } else if (action === "plus") {
