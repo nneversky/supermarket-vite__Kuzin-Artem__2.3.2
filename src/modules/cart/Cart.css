@@ -5,6 +5,7 @@
   transform: translate(470px, 70px);
   border-radius: 16px;
   box-shadow: 4px 4px 8px 4px rgba(34, 60, 80, 0.2);
+  z-index: 150;
 }
 
 .emty-cart {
