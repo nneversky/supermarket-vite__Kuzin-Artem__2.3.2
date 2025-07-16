@@ -2,29 +2,29 @@ import Button from "../../ui/button";
 import ShopTitle from "../../ui/shopTitle";
 import "./Header.css";
 import { CountItemsContext, ShowPopupContext } from "../../state/context";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 
 const Header = () => {
   const { count } = useContext(CountItemsContext);
-  const { setShowPopup } = useContext(ShowPopupContext);
-  const [stateCartButton, setStateCartButton] = useState("cart--close");
+  const { showPopup, setShowPopup } = useContext(ShowPopupContext);
 
   const handleClick = () => {
-    if (stateCartButton === "cart--close") {
-      setShowPopup(true);
-      return setStateCartButton("cart--open");
-    }
-    setShowPopup(false);
-    return setStateCartButton("cart--close");
+    setShowPopup(!showPopup);
   };
 
   return (
     <section className="header">
+      <div
+        onClick={() => setShowPopup(false)}
+        className={`header__background ${showPopup ? "background--active" : "background--disable"}`}
+      ></div>
       <div onClick={() => window.location.reload()}>
         <ShopTitle />
       </div>
 
-      <div className={`header__button ${stateCartButton}`}>
+      <div
+        className={`header__button ${showPopup ? "cart--open" : "cart--close"}`}
+      >
         <Button
           variant="filled"
           colorButton="#54B46A"
