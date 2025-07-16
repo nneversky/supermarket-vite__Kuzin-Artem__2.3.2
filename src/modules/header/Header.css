@@ -23,6 +23,28 @@
   border-radius: 50%;
 }
 
+.header__background {
+  z-index: 110;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(140, 140, 140, 0.5);
+  backdrop-filter: blur(2px);
+}
+
+
 .header__button {
   width: 130px;
+  z-index: 150;
+  position: relative;
+}
+
+.background--disable {
+  display: none;
+}
+
+.background--active {
+  display: block;
 }
