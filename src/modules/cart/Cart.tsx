@@ -20,7 +20,7 @@ const Cart = () => {
   }, [cart]);
 
   return (
-    <section ref={popupRef} className="popup">
+    <section ref={popupRef} data-testid="cart" className="popup">
       {showImgemptyCart && (
         <div className="emty-cart">
           <Image src={emptyCart} w="auto" h={200} />
